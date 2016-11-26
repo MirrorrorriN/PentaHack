@@ -1,6 +1,7 @@
 ##For Penta-Hackathon2016
 
 ---
+
 ###Simple Introduction
 
 ```
@@ -18,9 +19,11 @@ LeapMotion:
 ```
 
 ---
+
 我的IP：10.106.89.238， 你们可以通过访问10.106.89.238:7777/kongfu/hack来访问
 
 项目结构：
+```
 ├── README.md
 ├── db.sqlite3
 ├── kongfu
@@ -62,7 +65,11 @@ LeapMotion:
     ├── urls.pyc
     ├── wsgi.py
     └── wsgi.pyc
+```
 
+Attention:
+
+```
 （1）在templates里面添加页面， templates里面有个base页面(基模板页)， 里面有些block标签，所以新建的页面里面引用base这个模板页， 然后在block标签里填充内容就好啦（可参考hack.html这个文件
 
 （2）url的话修改kongfu/urls.py这个文件， 然后需要在views里面添加对应的function
@@ -70,3 +77,4 @@ LeapMotion:
 
 （3）nohup python manage.py runserver 0.0.0.0:7777 &
 运行Project， 局域网内部均可访问
+```
