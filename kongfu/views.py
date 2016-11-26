@@ -8,9 +8,21 @@ from django.core import serializers #serualizer
 import os, sys
 import time, subprocess, datetime
 import hashlib, json
-import Leap
+import Leap, gao
 
 
 @csrf_exempt
 def hack(request):
 	return render_to_response("hack.html")
+
+
+@csrf_exempt
+def getLeapData(request):
+	data1 = gao.main()
+	print len(data1)
+	data = {}
+	ret = json.dumps(data)
+	response = HttpResponse()
+	response['Content-Type'] = 'text/javascript'
+	response.write(ret)
+	return response

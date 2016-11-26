@@ -5,4 +5,5 @@ from kongfu.views import *
 
 urlpatterns = patterns('',
 	url(r'^hack', hack),
+	url(r'^getLeapData', getLeapData),
 )

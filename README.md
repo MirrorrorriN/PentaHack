@@ -77,3 +77,5 @@ Attention:
 （3）nohup python manage.py runserver 0.0.0.0:7777 &
 运行Project， 局域网内部均可访问
 ```
+
+ (4) http://paste.ubuntu.net/23536672/
