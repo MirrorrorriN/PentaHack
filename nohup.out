@@ -1,0 +1,395 @@
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+
+System check identified 1 issue (0 silenced).
+[27/Nov/2016 03:14:59] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:14:59] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:15:01] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:15:01] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:15:03] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+Performing system checks...
+
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+November 27, 2016 - 03:14:58
+Django version 1.8.4, using settings 'pentaHack.settings'
+Starting development server at http://127.0.0.1:7777/
+Quit the server with CONTROL-C.
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+System check identified some issues:
+
+WARNINGS:
+?: (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_DIRS.
+
+System check identified 1 issue (0 silenced).
+[27/Nov/2016 03:16:05] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:05] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:07] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:08] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:08] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:09] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:11] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:12] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:16:12] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:16] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:17] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:18] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:18] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:18] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:18] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:18] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+[27/Nov/2016 03:17:19] "POST /kongfu/getLeapData/ HTTP/1.1" 200 870
+Performing system checks...
+
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+November 27, 2016 - 03:16:04
+Django version 1.8.4, using settings 'pentaHack.settings'
+Starting development server at http://127.0.0.1:7777/
+Quit the server with CONTROL-C.
+Initialized
+Connected
+Initialized
+Connected
+Exited
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Initialized
+Connected
+Exited
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Initialized
+Connected
+Exited
+Exited
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+Connected
+Initialized
+ Initialized
+Initialized
+Initialized
+Connected
+Connected
+Initialized
+Connected
+Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ConnectedInitialized
+
+Connected
+Initialized
+Initialized
+Initialized
+Connected
+Connected
+Connected
+Initialized
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ConnectedInitialized
+
+ConnectedInitialized
+
+Connected
+Initialized
+Initialized
+Connected
+Initialized
+Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ InitializedConnected
+
+Connected
+ Initialized
+Initialized
+Connected
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+Connected
+Initialized
+Initialized
+Connected
+Connected
+Initialized
+Initialized
+Connected
+Initialized
+Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ Initialized
+Connected
+Connected
+Initialized
+Initialized
+Connected
+Initialized
+ Connected
+Initialized
+ Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+Connected
+Initialized
+Initialized
+ Initialized
+Connected
+Initialized
+Connected
+Connected
+Initialized
+ Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ Initialized
+Connected
+Initialized
+ Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+ Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+Connected
+Initialized
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+ConnectedInitialized
+
+Connected
+Initialized
+Initialized
+Connected
+Initialized
+Connected
+Connected
+Exited
+Exited
+Exited
+Exited
+Exited
+Initialized
+Connected
+Exited
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+Initialized
+Connected
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+sys.excepthook is missing
+lost sys.stderr
+Unhandled exception in thread started by 
+sys.excepthook is missing
+lost sys.stderr

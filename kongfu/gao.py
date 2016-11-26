@@ -17,8 +17,8 @@ class SampleListener(Leap.Listener):
 
     def on_init(self, controller):
         print "Initialized"
-        global data
-        data = []
+        global data, pre
+        data, pre = [], None
 
     def on_connect(self, controller):
         print "Connected"
@@ -28,7 +28,7 @@ class SampleListener(Leap.Listener):
         controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP);
         controller.enable_gesture(Leap.Gesture.TYPE_SCREEN_TAP);
         controller.enable_gesture(Leap.Gesture.TYPE_SWIPE);
-        controller.config.set("Gesture.Swipe.MinLength", 100);  
+        controller.config.set("Gesture.Swipe.MinLength", 20);  
         controller.config.save();
 
     def on_disconnect(self, controller):
@@ -45,22 +45,26 @@ class SampleListener(Leap.Listener):
         for hand in frame.hands:
             handEach = {"handType": "Left hand" if hand.is_left else "Right hand"}
             handEach["palm_position"] = str(hand.palm_position)
-            handEach["palm_normal"] = str(hand.palm_normal)
+           # handEach["palm_normal"] = str(hand.palm_normal)
             handEach["direction"] = str(hand.direction)
+            handEach["handerId"] = hand.id
 
-            arm = hand.arm
+            '''arm = hand.arm
             armData = {}
             armData["direction"] = str(arm.direction)
             armData["wrist_position"] = str(arm.wrist_position)
             armData["elbow_position"] = str(arm.elbow_position)
-            handEach['arm'] = armData
+            handEach['arm'] = armData'''
 
             fingerData = []
-            for finger in hand.fingers:
+            for finger in hand.pointables:
                 fingerEach = {}
-                fingerEach['finger_names'] = self.finger_names[finger.type]
-                fingerEach['finger_length'] = finger.length
-                fingerEach['finger_width'] = finger.width
+                fingerEach['fingerId'] = finger.id
+                fingerEach['fingerName'] = self.finger_names[finger.id % 10]
+              #  fingerEach['finger_length'] = finger.length
+              #  fingerEach['finger_width'] = finger.width
+                fingerEach['direction'] = str(finger.direction)
+                fingerEach['tipPostion'] = str(finger.tip_position)
                 fingerData.append(fingerEach)
             handEach['finger'] = fingerData
 
@@ -70,11 +74,12 @@ class SampleListener(Leap.Listener):
 
         gestureData = []
         for gesture in frame.gestures():
-            gestureEach = {}
-            gestureEach["type"] = gesture.type
+            gestureEach = {} 
             #Gesture 1
             if gesture.type == Leap.Gesture.TYPE_CIRCLE:
-                circle = CircleGesture(gesture)
+                gestureEach["type"] = 'circle'
+                
+                '''circle = CircleGesture(gesture)
 
                 # Determine clock direction using the angle between the pointable and the circle normal
                 if circle.pointable.direction.angle_to(circle.normal) <= Leap.PI/2:
@@ -82,38 +87,52 @@ class SampleListener(Leap.Listener):
                 else:
                     gestureEach["clockwiseness"] = "counterclockwise"
 
+
                 swept_angle = 0
-                if circle.state != Leap.Gesture.STATE_START && pre != No:
+                if (circle.state != Leap.Gesture.STATE_START) and pre != No:
                     previous_update = CircleGesture(pre.gesture(circle.id))
                     swept_angle =  (circle.progress - previous_update.progress) * 2 * Leap.PI
                 gestureEach["progress"], gestureEach["radius"], gestureEach["angle"], gestureEach["degrees"] = circle.progress, circle.radius, swept_angle * Leap.RAD_TO_DEG, clockwiseness
-
+                '''
 
             #Gesture 2
             if gesture.type == Leap.Gesture.TYPE_SWIPE:
+                gestureEach["type"] = "swipe"
+                '''
                 swipe = SwipeGesture(gesture)
                 gestureEach["state"], gestureEach["position"], gestureEach["direction"], gestureEach["speed"] = self.state_names[gesture.state], swipe.position, swipe.direction, swipe.speed
+                '''
 
 
             #Gesture 3
             if gesture.type == Leap.Gesture.TYPE_KEY_TAP:
+                gestureEach["type"] = "keytap"
+                gestureEach["pointableId"] = str(gesture.pointables[0])
                 keytap = KeyTapGesture(gesture)
-                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], keytap.position, keytap.direction 
+                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(keytap.position), str(keytap.direction) 
 
 
             #Gesture 4
             if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
+                gestureEach["type"] = "screentap"
+                gestureEach["pointableId"] = str(gesture.pointables[0])
                 screentap = ScreenTapGesture(gesture)
-                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], screentap.position, screentap.direction 
+                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(screentap.position), str(screentap.direction)
 
             gestureData.append(gestureEach)
+            print gestureEach
+
+            fn = '/Users/tcoops/pentaHack/kongfu/hack.log'
+            #print str(data)
+            with open(fn, "a") as f:
+                f.write(str(gestureEach))
         frameEach["gesture"] = gestureData
         return frameEach
 
 
     def on_frame(self, controller):
         # Get the most recent frame and report some basic information
-        global data
+        global data, pre
         frame = self.deal(controller.frame(), pre)
         pre = frame
         data.append(frame)
@@ -143,7 +162,7 @@ def getLeapData():
     try:
         global data
         while True:
-            if len(data) >= 30: 
+            if len(data) >= 30: #Interval
                 break
     except KeyboardInterrupt:
         pass

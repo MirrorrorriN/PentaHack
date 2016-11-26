@@ -20,5 +20,5 @@ function getLeapData() {
 }
  
 $(function() {
-	setInterval(getLeapData, 200);
+	setInterval(getLeapData, 20);
 })
