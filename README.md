@@ -13,12 +13,11 @@ Idea:
 架构：
 	LeapMotion < - > Django < - > 浏览器
 
-LeapMotion:
-	[链接](https://developer.leapmotion.com/v2?id=skeletal-beta&platform=osx&version=2.3.1.31549)
-
 ```
 
 ---
+
+LeapMotion:[链接](https://developer.leapmotion.com/v2?id=skeletal-beta&platform=osx&version=2.3.1.31549)
 
 我的IP：10.106.89.238， 你们可以通过访问10.106.89.238:7777/kongfu/hack来访问
 
