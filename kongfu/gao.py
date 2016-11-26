@@ -132,7 +132,7 @@ class SampleListener(Leap.Listener):
             return "STATE_INVALID"
 
 
-def main():
+def getLeapData():
     # Create a sample listener and controller
     listener = SampleListener()
     controller = Leap.Controller()
@@ -150,8 +150,3 @@ def main():
        # Remove the sample listener when done
         controller.remove_listener(listener)
         return data
-        
-
-
-if __name__ == "__main__":
-    main()

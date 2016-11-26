@@ -10,7 +10,7 @@ function getLeapData() {
 
 		success : function(response){
 			b = response
-			$('leapData').html(b.data)
+			$('leapData').html(b.hand)
 		},
 
 		error : function(response){

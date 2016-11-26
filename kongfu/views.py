@@ -18,9 +18,8 @@ def hack(request):
 
 @csrf_exempt
 def getLeapData(request):
-	data1 = gao.main()
-	print len(data1)
-	data = {}
+	data = gao.getLeapData()
+	print data
 	ret = json.dumps(data)
 	response = HttpResponse()
 	response['Content-Type'] = 'text/javascript'
