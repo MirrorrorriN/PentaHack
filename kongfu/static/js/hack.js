@@ -18,7 +18,7 @@ function getLeapData() {
 		}
 	})
 }
-
+ 
 $(function() {
 	setInterval(getLeapData, 200);
 })

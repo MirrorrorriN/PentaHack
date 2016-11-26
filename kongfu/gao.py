@@ -6,9 +6,9 @@
 # between Leap Motion and you, your company or other organization.             #
 ################################################################################
 
-import Leap, sys, thread, time
+import Leap, sys, thread, time, copy
 from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
-data = []
+data, pre = [], None
 
 class SampleListener(Leap.Listener):
     finger_names = ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky']
@@ -38,7 +38,7 @@ class SampleListener(Leap.Listener):
     def on_exit(self, controller):
         print "Exited"
 
-    def deal(self, frame):
+    def deal(self, frame, pre):
         frameEach = {}
 
         handData = []
@@ -83,8 +83,8 @@ class SampleListener(Leap.Listener):
                     gestureEach["clockwiseness"] = "counterclockwise"
 
                 swept_angle = 0
-                if circle.state != Leap.Gesture.STATE_START:
-                    previous_update = CircleGesture(controller.frame(1).gesture(circle.id))
+                if circle.state != Leap.Gesture.STATE_START && pre != No:
+                    previous_update = CircleGesture(pre.gesture(circle.id))
                     swept_angle =  (circle.progress - previous_update.progress) * 2 * Leap.PI
                 gestureEach["progress"], gestureEach["radius"], gestureEach["angle"], gestureEach["degrees"] = circle.progress, circle.radius, swept_angle * Leap.RAD_TO_DEG, clockwiseness
 
@@ -114,7 +114,8 @@ class SampleListener(Leap.Listener):
     def on_frame(self, controller):
         # Get the most recent frame and report some basic information
         global data
-        frame = self.deal(controller.frame())
+        frame = self.deal(controller.frame(), pre)
+        pre = frame
         data.append(frame)
         
 
