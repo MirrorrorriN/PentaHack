@@ -4,6 +4,6 @@ admin.autodiscover()
 from kongfu.views import *
 
 urlpatterns = patterns('',
-	url(r'^hack', hack),
-	url(r'^getLeapData', getLeapData),
+	url(r'^index/', hack),
+	url(r'^getLeapData/', getLeapData),
 )

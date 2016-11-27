@@ -68,6 +68,18 @@ class SampleListener(Leap.Listener):
                 fingerData.append(fingerEach)
             handEach['finger'] = fingerData
 
+            for finger in hand.pointables:
+                position = float(str(finger.direction)[1:-1].split(',')[1])
+                if position < -0.5:
+                    gestureData = {}
+                    gestureData["type"] = 'keytap'
+                    gestureData["pointableId"] = finger.id
+                    handData.append(handEach)
+                    frameEach["hand"] = handData        
+                    frameEach['gesture'] = [gestureData]
+                    return frameEach        
+
+
             handData.append(handEach)
         frameEach["hand"] = handData
 
@@ -95,6 +107,7 @@ class SampleListener(Leap.Listener):
                 gestureEach["progress"], gestureEach["radius"], gestureEach["angle"], gestureEach["degrees"] = circle.progress, circle.radius, swept_angle * Leap.RAD_TO_DEG, clockwiseness
                 '''
 
+
             #Gesture 2
             if gesture.type == Leap.Gesture.TYPE_SWIPE:
                 gestureEach["type"] = "swipe"
@@ -107,25 +120,34 @@ class SampleListener(Leap.Listener):
             #Gesture 3
             if gesture.type == Leap.Gesture.TYPE_KEY_TAP:
                 gestureEach["type"] = "keytap"
-                gestureEach["pointableId"] = str(gesture.pointables[0])
+                gestureEach["pointableId"] = str(gesture.pointables[0]).split(":")[-1]
+
                 keytap = KeyTapGesture(gesture)
                 gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(keytap.position), str(keytap.direction) 
+            
+                if len(gestureData):
+                    gestureData[0] = gestureEach
+                else:
+                    gestureData.append(gestureEach)
+                break
 
 
             #Gesture 4
             if gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
                 gestureEach["type"] = "screentap"
-                gestureEach["pointableId"] = str(gesture.pointables[0])
+                gestureEach["pointableId"] = str(gesture.pointables[0]).split(":")[-1]
+               # print gestureEach['pointableId']
                 screentap = ScreenTapGesture(gesture)
                 gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(screentap.position), str(screentap.direction)
-
+                
+                if len(gestureData):
+                    gestureData[0] = gestureEach
+                else:
+                    gestureData.append(gestureEach)
+                break
+        
             gestureData.append(gestureEach)
-            print gestureEach
 
-            fn = '/Users/tcoops/pentaHack/kongfu/hack.log'
-            #print str(data)
-            with open(fn, "a") as f:
-                f.write(str(gestureEach))
         frameEach["gesture"] = gestureData
         return frameEach
 
@@ -162,7 +184,7 @@ def getLeapData():
     try:
         global data
         while True:
-            if len(data) >= 30: #Interval
+            if len(data) >= 20: #Interval
                 break
     except KeyboardInterrupt:
         pass
