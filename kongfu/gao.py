@@ -11,9 +11,9 @@ from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
 data, pre = [], None
 
 class SampleListener(Leap.Listener):
-    finger_names = ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky']
+    finger_names = ["Thumb", "Index", "Middle", "Ring", "Pinky"]
     bone_names = ['Metacarpal', 'Proximal', 'Intermediate', 'Distal']
-    state_names = ['STATE_INVALID', 'STATE_START', 'STATE_UPDATE', 'STATE_END']
+    state_names = ["STATE_INVALID", "STATE_START", "STATE_UPDATE", "STATE_END"]
 
     def on_init(self, controller):
         print "Initialized"
@@ -44,27 +44,28 @@ class SampleListener(Leap.Listener):
         handData = []
         for hand in frame.hands:
             handEach = {"handType": "Left hand" if hand.is_left else "Right hand"}
-            handEach["palm_position"] = str(hand.palm_position)
-           # handEach["palm_normal"] = str(hand.palm_normal)
-            handEach["direction"] = str(hand.direction)
-            handEach["handerId"] = hand.id
+            position = str(hand.palm_position)[1:-1].split(',')
+            pos = [float(p) for p in position]
+            direction = str(hand.direction)[1:-1].split(',')
+            dirs = [float(p) for p in direction]
 
-            '''arm = hand.arm
-            armData = {}
-            armData["direction"] = str(arm.direction)
-            armData["wrist_position"] = str(arm.wrist_position)
-            armData["elbow_position"] = str(arm.elbow_position)
-            handEach['arm'] = armData'''
+            handEach["palmPosition"] = pos
+           # handEach["palm_normal"] = str(hand.palm_normal)
+            handEach["direction"] = dirs
+            handEach["handerId"] = hand.id
 
             fingerData = []
             for finger in hand.pointables:
                 fingerEach = {}
                 fingerEach['fingerId'] = finger.id
                 fingerEach['fingerName'] = self.finger_names[finger.id % 10]
-              #  fingerEach['finger_length'] = finger.length
-              #  fingerEach['finger_width'] = finger.width
-                fingerEach['direction'] = str(finger.direction)
-                fingerEach['tipPostion'] = str(finger.tip_position)
+                position = str(finger.direction)[1:-1].split(',')
+                pos = [float(p) for p in position]
+                direction = str(finger.tip_position)[1:-1].split(',')
+                dirs = [float(p) for p in direction]
+
+                fingerEach['direction'] = pos
+                fingerEach['tipPostion'] = dirs
                 fingerData.append(fingerEach)
             handEach['finger'] = fingerData
 
@@ -91,39 +92,25 @@ class SampleListener(Leap.Listener):
             if gesture.type == Leap.Gesture.TYPE_CIRCLE:
                 gestureEach["type"] = 'circle'
                 
-                '''circle = CircleGesture(gesture)
-
-                # Determine clock direction using the angle between the pointable and the circle normal
-                if circle.pointable.direction.angle_to(circle.normal) <= Leap.PI/2:
-                    gestureEach["clockwiseness"] = "clockwise"
-                else:
-                    gestureEach["clockwiseness"] = "counterclockwise"
-
-
-                swept_angle = 0
-                if (circle.state != Leap.Gesture.STATE_START) and pre != No:
-                    previous_update = CircleGesture(pre.gesture(circle.id))
-                    swept_angle =  (circle.progress - previous_update.progress) * 2 * Leap.PI
-                gestureEach["progress"], gestureEach["radius"], gestureEach["angle"], gestureEach["degrees"] = circle.progress, circle.radius, swept_angle * Leap.RAD_TO_DEG, clockwiseness
-                '''
+                
 
 
             #Gesture 2
             if gesture.type == Leap.Gesture.TYPE_SWIPE:
                 gestureEach["type"] = "swipe"
-                '''
-                swipe = SwipeGesture(gesture)
-                gestureEach["state"], gestureEach["position"], gestureEach["direction"], gestureEach["speed"] = self.state_names[gesture.state], swipe.position, swipe.direction, swipe.speed
-                '''
 
 
             #Gesture 3
             if gesture.type == Leap.Gesture.TYPE_KEY_TAP:
                 gestureEach["type"] = "keytap"
-                gestureEach["pointableId"] = str(gesture.pointables[0]).split(":")[-1]
+                gestureEach["pointableId"] = int(str(gesture.pointables[0]).split(":")[-1])
 
                 keytap = KeyTapGesture(gesture)
-                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(keytap.position), str(keytap.direction) 
+                position = str(keytap.position)[1:-1].split(',')
+                pos = [float(p) for p in position]
+                direction = str(keytap.direction)[1:-1].split(',')
+                dirs = [float(p) for p in direction]
+                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], pos, dirs
             
                 if len(gestureData):
                     gestureData[0] = gestureEach
@@ -138,7 +125,11 @@ class SampleListener(Leap.Listener):
                 gestureEach["pointableId"] = str(gesture.pointables[0]).split(":")[-1]
                # print gestureEach['pointableId']
                 screentap = ScreenTapGesture(gesture)
-                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], str(screentap.position), str(screentap.direction)
+                position = str(screentap.position)[1:-1].split(',')
+                pos = [float(p) for p in position]
+                direction = str(screentap.direction)[1:-1].split(',')
+                dirs = [float(p) for p in direction]
+                gestureEach["state"], gestureEach["position"], gestureEach["direction"] = self.state_names[gesture.state], pos, dirs
                 
                 if len(gestureData):
                     gestureData[0] = gestureEach

@@ -13,7 +13,7 @@ import Leap, gao
 
 @csrf_exempt
 def hack(request):
-	return render_to_response("hack.html")
+	return render_to_response("index.html")
 
 
 @csrf_exempt
@@ -34,13 +34,10 @@ def getLeapData(request):
 			flag = True #说明有用leap
 
 	if flag and not suc:
-		data = {'hand':hand, 'gesture':[]}
+		data = {"hand":hand, "gesture":[]}
 
 	#print data
-
 	ret = json.dumps(data)
-	print ret
-
 	response = HttpResponse()
 	response['Content-Type'] = 'text/javascript'
 	response.write(ret)

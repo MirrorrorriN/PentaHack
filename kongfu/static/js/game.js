@@ -1248,7 +1248,7 @@ Piano.prototype.update=function(){
 }
 
 function loop(){
-  //console.log("aaaaa", plam)
+ // console.log("aaaaa", plam)
   getLeapData()
   if(plam.length > 1) {
     ins.mesh.position.y += plam[1];

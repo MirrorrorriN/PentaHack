@@ -1,10 +1,11 @@
 var plam = [], fingers = []
-var gestureType, gesturePosition
+var gestureType, gesturePosition = None
 var empty = false
 
 function getLeapData() {
 	url = '/kongfu/getLeapData/'
 	data = new Object()
+	gesturePosition = None
 	$.ajax({
 		type : 'post',
 		dataType : 'json',
@@ -16,6 +17,7 @@ function getLeapData() {
 			b = response
 			if(b.hand == undefined) {
 				empty = true
+
 			}
 			else if(b.gesture.length == 0) { // not Leap Motion
 				Leap(b)
@@ -25,9 +27,10 @@ function getLeapData() {
 				Leap(b)
 				empty = false
 				gesturePosition = 0
-				gestureType = data.gesture[0].type
+				gestureType = b.gesture[0].type
+
 				for(var i = 0; i < fingerIds.length; ++i) {
-					if(fingerIds[i] == data.gesture[0].pointableId) {
+					if(fingerIds[i] == b.gesture[0].pointableId) {
 						gesturePosition = i
 						break
 					}
@@ -45,27 +48,18 @@ function getLeapData() {
 
 
 function Leap(data) {
-	plamDatas = data.hand[0].palm_position.toString()
-	plamData = plamDatas.substring(1, plamDatas.length - 1).split(',')
-	palm = []
-	for(var i = 0; i < 3; ++i) {
-		plam.push(parseFloat(plamData[i]))
-	}
+	plam = data.hand[0].palmPosition
 
 	fingerIds = []
 	fingerData = data.hand[0].finger
 	fingers = []
-	for(var i = 0; i < fingerData.length; ++i) {
-		res = []
-		for(var i = 0; i < 3; ++i) {
-			tmp = fingerData[i].toString()
-			res.push(parseFloat(tmp.substring(1, tmp.length - 1).split(',')))
-		}
-		fingers.push(res)
+	for(var i = 0; i < fingerData.length; ++i) {		
+		fingers.push(fingerData[i].tipPostion)
 		fingerIds.push(parseInt(fingerData[i].fingerId))
 	}
 } 
 
-$(function() {
+
+/*$(function() {
 	setInterval(getLeapData, 100)
-})
+})*/
